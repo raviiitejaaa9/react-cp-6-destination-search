@@ -11,6 +11,7 @@ class DestinationSearch extends Component {
 
   onChangeInput = event => {
     this.setState({searchValue: event.target.value})
+    console.log(event.target.value)
   }
 
   render() {
@@ -21,6 +22,8 @@ class DestinationSearch extends Component {
       eachItem.name.toLowerCase().includes(searchValue.toLowerCase()),
     )
 
+    console.log(searchResults)
+
     return (
       <div className="bg-container">
         <div className="search-container">
@@ -29,8 +32,8 @@ class DestinationSearch extends Component {
             <input
               type="search"
               placeholder="search"
-              value="searchValue"
               className="search-input"
+              onChange={this.onChangeInput}
             />
             <img
               src="https://assets.ccbp.in/frontend/react-js/destinations-search-icon-img.png"
@@ -40,7 +43,10 @@ class DestinationSearch extends Component {
           </div>
           <ul className="destinations-list">
             {searchResults.map(eachDestination => (
-              <DestinationItem eachItem={eachDestination} />
+              <DestinationItem
+                eachItem={eachDestination}
+                key={eachDestination.id}
+              />
             ))}
           </ul>
         </div>
