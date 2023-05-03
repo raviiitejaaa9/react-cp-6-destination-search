@@ -6,10 +6,10 @@ const DestinationItem = props => {
   const {id, imgUrl, name} = eachItem
 
   return (
-    <div className="destination">
+    <li className="destination">
       <img src={imgUrl} alt={name} className="image" />
       <p className="city"> {name} </p>
-    </div>
+    </li>
   )
 }
 
